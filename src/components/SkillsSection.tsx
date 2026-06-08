@@ -6,7 +6,7 @@ const skillGroups = [
   {
     title: "Frontend / Mobile",
     icon: Smartphone,
-    skills: ["Flutter", "Dart", "GetX", "BLoC", "Riverpod", "UI/UX Design"],
+    skills: ["Flutter", "React", "GetX", "TypeScript", "Tailwind", "UI/UX"],
   },
   {
     title: "Backend / APIs",

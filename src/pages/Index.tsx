@@ -5,13 +5,16 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
-import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
+import ContactDialog from "@/components/ContactDialog";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
+  const [contactOpen, setContactOpen] = useState(false);
+
+  const openContact = () => setContactOpen(true);
 
   return (
     <>
@@ -21,14 +24,14 @@ const Index = () => {
 
       {!loading && (
         <div className="min-h-screen bg-background">
-          <Navbar />
-          <HeroSection />
+          <Navbar onContactClick={openContact} />
+          <HeroSection onContactClick={openContact} />
           <AboutSection />
           <ProjectsSection />
           <SkillsSection />
-          <ServicesSection />
-          <ContactSection />
+          <ContactSection onContactClick={openContact} />
           <Footer />
+          <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
         </div>
       )}
     </>

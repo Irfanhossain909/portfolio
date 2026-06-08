@@ -6,11 +6,14 @@ const navItems = [
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
-  { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  onContactClick: () => void;
+}
+
+const Navbar = ({ onContactClick }: NavbarProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -27,37 +30,40 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="font-heading text-xl font-bold gradient-text">
-          Portfolio
-        </a>
+        <div className="hidden md:block w-24" aria-hidden />
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="nav-link text-sm font-medium">
               {item.label}
             </a>
           ))}
-          <a href="#contact" className="glow-button text-sm !px-6 !py-2">
-            Hire Me
-          </a>
         </div>
 
-        {/* Mobile toggle */}
+        <div className="hidden md:block">
+          <button
+            type="button"
+            onClick={onContactClick}
+            className="glow-button text-sm !px-6 !py-2"
+          >
+            Contact Me
+          </button>
+        </div>
+
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground ml-auto"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -77,13 +83,16 @@ const Navbar = () => {
                   {item.label}
                 </a>
               ))}
-              <a
-                href="#contact"
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(false);
+                  onContactClick();
+                }}
                 className="glow-button text-sm !px-6 !py-2 mt-2"
-                onClick={() => setMobileOpen(false)}
               >
-                Hire Me
-              </a>
+                Contact Me
+              </button>
             </div>
           </motion.div>
         )}

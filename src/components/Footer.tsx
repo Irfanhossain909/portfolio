@@ -1,11 +1,13 @@
+import { profile } from "@/data/profile";
+
 const Footer = () => (
-  <footer className="border-t border-border py-8 px-6">
-    <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+  <footer className="border-t border-primary/20 py-8 px-6">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
       <p className="text-muted-foreground text-sm">
-        © {new Date().getFullYear()} Portfolio. All rights reserved.
+        © {new Date().getFullYear()} {profile.name}. All rights reserved.
       </p>
       <p className="text-muted-foreground text-sm">
-        Built with <span className="text-primary">♥</span> and Flutter expertise
+        Full Stack App Developer · Flutter & React
       </p>
     </div>
   </footer>
