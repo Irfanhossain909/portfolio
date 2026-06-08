@@ -53,4 +53,17 @@ export const projects: Project[] = [
     appStoreUrl: "https://apps.apple.com/us/app/creepy-shorts/id6758427319",
     appleAppId: "6758427319",
   },
+
+  {
+    id: "ways2shop",
+    title: "Ways2Shop",
+    description:
+      "E-commerce mobile application that enables users to browse products, shop online, manage orders, and enjoy a seamless shopping experience with secure authentication and real-time updates.",
+    icon: "/images/apps/ways2shop.png",
+    tech: ["Flutter", "GetX", "REST API", "Firebase", "Payment Gateway", "In-App Purchase"],
+    playStoreUrl:
+      "https://play.google.com/store/apps/details?id=com.troyajaga.waystooshop&pcampaignid=web_share",
+    appStoreUrl: "https://apps.apple.com/us/app/ways2shop/id6756764605",
+    appleAppId: "6756764605",
+  },
 ];
