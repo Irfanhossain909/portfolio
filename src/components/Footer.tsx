@@ -7,7 +7,7 @@ const Footer = () => (
         © {new Date().getFullYear()} {profile.name}. All rights reserved.
       </p>
       <p className="text-muted-foreground text-sm">
-        Full Stack App Developer · Flutter & React
+        Full Stack App Developer · Flutter & Platform Channels
       </p>
     </div>
   </footer>

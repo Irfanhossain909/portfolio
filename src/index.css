@@ -134,6 +134,55 @@
     @apply border-primary/40 scale-110;
     box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.3);
   }
+
+  .hero-stat-card {
+    @apply glass-card p-4 text-center;
+  }
+
+  .hero-portrait-wrap {
+    @apply pb-10;
+  }
+
+  .hero-portrait-bg {
+    @apply absolute inset-4 rounded-[2rem] bg-primary/10 blur-2xl;
+  }
+
+  .hero-portrait-ring {
+    @apply absolute inset-0 rounded-[2rem] border border-primary/20 animate-spin-slow;
+  }
+
+  .hero-portrait-card {
+    @apply relative rounded-[2rem] overflow-hidden border-2 border-primary/40 bg-card;
+    box-shadow: 0 0 60px -15px hsl(var(--primary) / 0.35);
+  }
+
+  .hero-portrait-image-wrap {
+    @apply aspect-square overflow-hidden;
+  }
+
+  .hero-portrait-image {
+    @apply w-full h-full object-cover object-top;
+  }
+
+  .hero-portrait-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none;
+  }
+
+  .hero-badges-layer {
+    @apply absolute inset-0 pointer-events-none;
+  }
+
+  .hero-tech-badge {
+    @apply flex items-center gap-2 glass-card px-3 py-2 shadow-lg;
+  }
+
+  .hero-tech-badge-img {
+    @apply w-5 h-5 object-contain;
+  }
+
+  .hero-tech-badge-label {
+    @apply text-xs font-medium text-foreground whitespace-nowrap;
+  }
 }
 
 @layer utilities {

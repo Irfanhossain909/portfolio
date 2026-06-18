@@ -1,24 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Smartphone, Server, Wrench } from "lucide-react";
-
-const skillGroups = [
-  {
-    title: "Frontend / Mobile",
-    icon: Smartphone,
-    skills: ["Flutter", "React", "GetX", "TypeScript", "Tailwind", "UI/UX"],
-  },
-  {
-    title: "Backend / APIs",
-    icon: Server,
-    skills: ["REST APIs", "Dio", "Socket.IO", "Firebase", "Node.js", "GraphQL"],
-  },
-  {
-    title: "Tools & DevOps",
-    icon: Wrench,
-    skills: ["Git", "CI/CD", "VS Code", "Postman", "Figma", "Docker"],
-  },
-];
+import { skillGroups } from "@/data/skills";
 
 const SkillsSection = () => {
   const ref = useRef(null);
@@ -33,10 +15,17 @@ const SkillsSection = () => {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">Skills</p>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-3 h-3 bg-primary rounded-sm" />
+            <p className="text-primary font-medium text-sm tracking-widest uppercase">Skills</p>
+          </div>
           <h2 className="font-heading text-3xl md:text-5xl font-bold">
             My <span className="gradient-text">Tech Stack</span>
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl">
+            Specialized in Flutter mobile development with Platform Channels, Firebase, FastAPI,
+            WebSockets, and scalable app architecture.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -54,17 +43,23 @@ const SkillsSection = () => {
                 </div>
                 <h3 className="font-heading text-lg font-semibold">{group.title}</h3>
               </div>
-              <div className="flex flex-wrap gap-2">
+
+              <div className="space-y-5">
                 {group.skills.map((skill, si) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.4, delay: 0.3 + si * 0.05 + gi * 0.1 }}
-                    className="text-sm px-4 py-2 rounded-lg bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary border border-transparent hover:border-primary/20 transition-all duration-300 cursor-default"
-                  >
-                    {skill}
-                  </motion.span>
+                  <div key={skill.name}>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground">{skill.level}%</span>
+                    </div>
+                    <div className="h-2 rounded-full bg-muted overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 + si * 0.08 + gi * 0.1 }}
+                        className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
+                      />
+                    </div>
+                  </div>
                 ))}
               </div>
             </motion.div>

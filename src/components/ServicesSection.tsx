@@ -5,15 +5,15 @@ import { Smartphone, Globe, Palette } from "lucide-react";
 const services = [
   {
     icon: Smartphone,
-    title: "App Development",
-    desc: "Cross-platform mobile apps built with Flutter — beautiful, fast, and production-ready.",
-    features: ["iOS & Android", "Custom Animations", "Offline Support", "Push Notifications"],
+    title: "Flutter App Development",
+    desc: "Cross-platform Android & iOS apps with Riverpod, GetX, clean architecture, and production-ready releases.",
+    features: ["Android & iOS", "Platform Channels", "Offline Support", "Push Notifications"],
   },
   {
     icon: Globe,
-    title: "API Integration",
-    desc: "Seamless backend connections using REST, GraphQL, and real-time websockets.",
-    features: ["REST & GraphQL", "Socket.IO", "Authentication", "Data Sync"],
+    title: "API & Native Integration",
+    desc: "REST APIs, WebSockets, FastAPI backends, and Flutter Platform Channels for native device features.",
+    features: ["REST & WebSockets", "Platform Channels", "BLE / Native SDKs", "Firebase & FCM"],
   },
   {
     icon: Palette,
@@ -36,10 +36,16 @@ const ServicesSection = () => {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-3">Services</p>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-3 h-3 bg-primary rounded-sm" />
+            <p className="text-primary font-medium text-sm tracking-widest uppercase">Services</p>
+          </div>
           <h2 className="font-heading text-3xl md:text-5xl font-bold">
             What I <span className="gradient-text">Offer</span>
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-xl">
+            End-to-end mobile development — from architecture and APIs to polished UI and store release.
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
