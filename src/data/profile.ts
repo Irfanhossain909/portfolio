@@ -100,6 +100,8 @@ export const profile = {
   cvPath: "/cv/irfan-cv.pdf",
   /** Profile photo — public/images/profile.png */
   image: "/images/profile.png",
+  /** About section video — public/videos/ */
+  aboutVideo: "/videos/about-video.mp4",
   email: "irfanhpssain@gmail.com",
   phone: "+880 1762 226066",
   /** WhatsApp link — country code সহ, space/+ ছাড়া */
